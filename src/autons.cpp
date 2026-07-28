@@ -12,7 +12,7 @@
 using namespace vex;
 
 void rightAuton() {
-
+  
   Controller.Screen.clearLine(3);
   Controller.Screen.setCursor(3, 1);
   Controller.Screen.print("start auton");

@@ -1,5 +1,8 @@
 /* Helps prevent header files from being included multiple times*/
 #pragma once
+#include "util.h"
+
+void drivePID(double targetInches, DrivePidParams param = {}, double kP = 0.26, double kI = 0.0, double kD = 0.0);
 
 class PID {
 
