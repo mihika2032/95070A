@@ -110,14 +110,28 @@ void usercontrol(void) {
   while (true) {
 
     // ========== DRIVE CONTROL ========== //
-    double fwd = Controller.Axis3.position(percent);
-    double turn = Controller.Axis1.position(percent);
+  double forwards = Controller.Axis3.position();
+  double turning = Controller.Axis1.position();
 
-    double leftPower  = fwd + turn;
-    double rightPower = fwd - turn;
+  double right= forwards * 0.9 - turning * 0.7;
+  double left= forwards * 0.9 + turning * 0.7;  
 
-    spinLeftDT(leftPower * DRIVER_SPEED_FACTOR);
-    spinRightDT(rightPower * DRIVER_SPEED_FACTOR);
+  if(fabs(forwards) < 10 && fabs (turning) < 10){
+  LB.stop(coast);
+  LM.stop(coast);
+  LF.stop(coast);
+  RB.stop(coast);
+  RM.stop(coast);
+  RF.stop(coast);    
+  }
+  else{
+  LB.spin(forward, left, percent);
+  LM.spin(forward, left, percent);
+  LF.spin(forward, left, percent);
+  RB.spin(forward, right, percent);
+  RM.spin(forward, right, percent);
+  RF.spin(forward, right, percent);
+  }
 
     // ========== Lift CONTROL ========== //
     // Hold down the R1 and R2 buttons to use the lift //
