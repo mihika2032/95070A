@@ -6,8 +6,8 @@
  * Specify return type, function name, and parameters
 */
 
-extern const double GEAR_RATIO; //drivetrain gear ratio
-extern const double WHEEL_DIAMETER; //drivetrain wheel diameter
+inline constexpr double GEAR_RATIO = 1.0;       // Your gear ratio
+inline constexpr double WHEEL_DIAMETER = 3.25;
 
 double inchesToDegrees(double inches, double gearRatio = GEAR_RATIO, double wheelDiameter = WHEEL_DIAMETER);
 

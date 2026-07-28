@@ -12,6 +12,10 @@
 using namespace vex;
 
 void rightAuton() {
+  DrivePidParams setting = {};  //testing that there are no errors when building-- still need to test downloading
+  setting.maxSpeed = 60.0;
+  drivePID(12);
+  turnPID(-88,0.30,0,0); 
   
   Controller.Screen.clearLine(3);
   Controller.Screen.setCursor(3, 1);
