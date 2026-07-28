@@ -105,19 +105,41 @@ bool buttonXHeld = false;
 void usercontrol(void) {
 
   bool slowModeActive = false;
-  const double DRIVER_SPEED_FACTOR = 0.8; //can adjust your driver speed here
+  const double DRIVER_SPEED_FACTOR = 1.15; //can adjust your driver speed here
 
   while (true) {
 
     // ========== DRIVE CONTROL ========== //
-    double fwd = Controller.Axis3.position(percent);
+    /*double fwd = Controller.Axis3.position(percent);
     double turn = Controller.Axis1.position(percent);
 
     double leftPower  = fwd + turn;
     double rightPower = fwd - turn;
 
     spinLeftDT(leftPower * DRIVER_SPEED_FACTOR);
-    spinRightDT(rightPower * DRIVER_SPEED_FACTOR);
+    spinRightDT(rightPower * DRIVER_SPEED_FACTOR);*/
+  double forwards = Controller.Axis3.position();
+  double turning = Controller.Axis1.position();
+
+  double right= forwards * 1.5 - turning * 0.6;
+  double left= forwards * 1.5 + turning;  
+
+  if(fabs(forwards) < 10 && fabs (turning) < 10){
+  LB.stop(coast);
+  LM.stop(coast);
+  LF.stop(coast);
+  RB.stop(coast);
+  RM.stop(coast);
+  RF.stop(coast);    
+  }
+  else{
+  LB.spin(forward, left, percent);
+  LM.spin(forward, left, percent);
+  LF.spin(forward, left, percent);
+  RB.spin(forward, right, percent);
+  RM.spin(forward, right, percent);
+  RF.spin(forward, right, percent);
+  }
 
     // ========== Lift CONTROL ========== //
     // Hold down the R1 and R2 buttons to use the lift //
