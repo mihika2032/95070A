@@ -105,7 +105,7 @@ bool buttonXHeld = false;
 void usercontrol(void) {
 
   bool slowModeActive = false;
-  const double DRIVER_SPEED_FACTOR = 0.6; //can adjust your driver speed here
+  const double DRIVER_SPEED_FACTOR = 0.8; //can adjust your driver speed here
 
   while (true) {
 
