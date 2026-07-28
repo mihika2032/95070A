@@ -2,7 +2,7 @@
 #pragma once
 #include "util.h"
 
-void drivePID(double targetInches, DrivePidParams param = {}, double kP = 0.26, double kI = 0.0, double kD = 0.0);
+void drivePID(double targetInches, DrivePidParams param = {}, double kP = 3, double kI = 0.0, double kD = 0.0);
 void turnPID(double targetAngle, double kP, double kI, double kD);
 
 class PID {
