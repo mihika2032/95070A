@@ -54,6 +54,60 @@ double targetDegrees = inchesToDegrees(targetInches);
   Controller.Screen.print(targetDegrees);
 }
 
+void turnPID(double targetAngle, double kP = 0.1, double kI = 0.03, double kD = 0.) {
+  
+  //double dir =targetAngle/fabs(targetAngle);
+ 
+void turnPID(double targetAngle, double kP, double kI, double kD) ;
+
+  double dir = targetAngle/fabs(targetAngle);
+  // Reset inertial and motor encoders
+  InertialSensor.setRotation(0, degrees);
+  // PID state
+  double err = targetAngle;
+  double integ = 0;
+  double deriv = 0;
+  double last = 0;
+  const double maxI = 50.0;
+  targetAngle=fabs(targetAngle);
+
+  targetAngle = fabs(targetAngle);
+
+
+  // loop til we’re close
+  while (fabs(err) > 3.5) {
+  while (fabs(err) > 1.0) {
+    err = targetAngle - fabs(InertialSensor.rotation(degrees));
+    integ += err;
+    if (integ >  maxI) integ =  maxI;
+    if (integ < -maxI) integ = -maxI;
+    deriv = err - last;
+    last  = err;
+
+    Controller.Screen.clearScreen();
+    Controller.Screen.setCursor(1, 1);
+    Controller.Screen.print(InertialSensor.rotation(degrees));
+
+    double power = kP*err + kI*integ + kD*deriv;
+    if (power > 100) power = 100;
+    if (power < -100) power = -100;
+
+    spinLeftDT(dir*-power);
+    spinRightDT(dir*power);
+
+    vex::task::sleep(20);
+  }
+
+  Controller.Screen.print("done");
+  Controller.Screen.print(targetAngle);
+
+  stopDT();
+  //stop();
+
+}
+
+}
+
 PID::PID(double startError, double kp, double ki, double kd) {
   error = startError;
   kP = kp;
