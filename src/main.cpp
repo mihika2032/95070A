@@ -181,7 +181,7 @@ void usercontrol(void) {
     // ========== COLOR SENSOR ========== //
     color detectedColor = OpticalSensor.color();
 
-    /*if (detectedColor == color::blue) {
+    if (detectedColor == color::blue) {
       Brain.Screen.printAt(50, 50, "Blue Detected!");
     } 
     
@@ -201,14 +201,9 @@ void usercontrol(void) {
 
     // ========== PNEUMATICS ========== //
     // Use the X button to toggle the piston position //
-    if(Controller.ButtonX.pressing() && !buttonXHeld) {
+    if(Controller.ButtonX.PRESSED) {
       DoubleActingPiston.set(!DoubleActingPiston.value());
-      buttonXHeld = true;
     }
-    else if(!Controller.ButtonX.pressing()) {
-      buttonXHeld = false;
-    }
-
     // ========== LOOP DELAY ========== //
     wait(20, msec);
   }
