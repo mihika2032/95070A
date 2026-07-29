@@ -110,28 +110,12 @@ void usercontrol(void) {
   while (true) {
 
     // ========== DRIVE CONTROL ========== //
-<<<<<<< HEAD
     /*double fwd = Controller.Axis3.position(percent);
     double turn = Controller.Axis1.position(percent);
-=======
-  double forwards = Controller.Axis3.position();
-  double turning = Controller.Axis1.position();
->>>>>>> 6579150c134ab20a8f2b098a74a084e1dd3f28f6
 
   double right= forwards * 0.9 - turning * 0.7;
   double left= forwards * 0.9 + turning * 0.7;  
 
-<<<<<<< HEAD
-    spinLeftDT(leftPower * DRIVER_SPEED_FACTOR);
-    spinRightDT(rightPower * DRIVER_SPEED_FACTOR);*/
-  double forwards = Controller.Axis3.position();
-  double turning = Controller.Axis1.position();
-
-  double right= forwards * 1.5 - turning * 0.6;
-  double left= forwards * 1.5 + turning;  
-
-=======
->>>>>>> 6579150c134ab20a8f2b098a74a084e1dd3f28f6
   if(fabs(forwards) < 10 && fabs (turning) < 10){
   LB.stop(coast);
   LM.stop(coast);
@@ -147,17 +131,17 @@ void usercontrol(void) {
   RB.spin(forward, right, percent);
   RM.spin(forward, right, percent);
   RF.spin(forward, right, percent);
-  }
+  }*/
 
     // ========== Lift CONTROL ========== //
     // Hold down the R1 and R2 buttons to use the lift //
     if (Controller.ButtonR1.pressing()) {
-      Lift1.spin(forward, 75, percent);
-      Lift2.spin(reverse, 75, percent);
+      Lift1.spin(reverse, 50, percent);
+      Lift2.spin(forward, 50, percent);
     } 
     else if (Controller.ButtonR2.pressing()) {
-      Lift1.spin(reverse, 75, percent);
-      Lift2.spin(forward, 75, percent);
+      Lift1.spin(forward, 50, percent);
+      Lift2.spin(reverse, 50, percent);
     } 
     else {
       Lift1.stop(hold);
@@ -166,7 +150,7 @@ void usercontrol(void) {
 
     // ========== INTAKE ========== //
     // Tap the L1 and L2 buttons to set the intake speed. Tap the same button again to stop //
-    if (Controller.ButtonL1.pressing() && intakeSpeed != 100 && !buttonL1Held) {
+    /*if (Controller.ButtonL1.pressing() && intakeSpeed != 100 && !buttonL1Held) {
       intakeMotor.spin(forward, 100, percent);
       intakeSpeed = 100;
       buttonL1Held = true;
