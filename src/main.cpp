@@ -110,28 +110,12 @@ void usercontrol(void) {
   while (true) {
 
     // ========== DRIVE CONTROL ========== //
-<<<<<<< HEAD
-    /*double fwd = Controller.Axis3.position(percent);
-    double turn = Controller.Axis1.position(percent);
-=======
   double forwards = Controller.Axis3.position();
   double turning = Controller.Axis1.position();
->>>>>>> 6579150c134ab20a8f2b098a74a084e1dd3f28f6
 
   double right= forwards * 0.9 - turning * 0.7;
   double left= forwards * 0.9 + turning * 0.7;  
 
-<<<<<<< HEAD
-    spinLeftDT(leftPower * DRIVER_SPEED_FACTOR);
-    spinRightDT(rightPower * DRIVER_SPEED_FACTOR);*/
-  double forwards = Controller.Axis3.position();
-  double turning = Controller.Axis1.position();
-
-  double right= forwards * 1.5 - turning * 0.6;
-  double left= forwards * 1.5 + turning;  
-
-=======
->>>>>>> 6579150c134ab20a8f2b098a74a084e1dd3f28f6
   if(fabs(forwards) < 10 && fabs (turning) < 10){
   LB.stop(coast);
   LM.stop(coast);
