@@ -110,8 +110,13 @@ void usercontrol(void) {
   while (true) {
 
     // ========== DRIVE CONTROL ========== //
+<<<<<<< HEAD
   double forwards = Controller.Axis3.position();
   double turning = Controller.Axis1.position();
+=======
+    /*double fwd = Controller.Axis3.position(percent);
+    double turn = Controller.Axis1.position(percent);
+>>>>>>> 6369088c805d1eba8d8762691f12aec366ade949
 
   double right= forwards * 0.9 - turning * 0.7;
   double left= forwards * 0.9 + turning * 0.7;  
@@ -131,17 +136,17 @@ void usercontrol(void) {
   RB.spin(forward, right, percent);
   RM.spin(forward, right, percent);
   RF.spin(forward, right, percent);
-  }
+  }*/
 
     // ========== Lift CONTROL ========== //
     // Hold down the R1 and R2 buttons to use the lift //
     if (Controller.ButtonR1.pressing()) {
-      Lift1.spin(forward, 75, percent);
-      Lift2.spin(forward, 75, percent);
+      Lift1.spin(reverse, 50, percent);
+      Lift2.spin(forward, 50, percent);
     } 
     else if (Controller.ButtonR2.pressing()) {
-      Lift1.spin(reverse, 75, percent);
-      Lift2.spin(reverse, 75, percent);
+      Lift1.spin(forward, 50, percent);
+      Lift2.spin(reverse, 50, percent);
     } 
     else {
       Lift1.stop(hold);
@@ -150,7 +155,7 @@ void usercontrol(void) {
 
     // ========== INTAKE ========== //
     // Tap the L1 and L2 buttons to set the intake speed. Tap the same button again to stop //
-    if (Controller.ButtonL1.pressing() && intakeSpeed != 100 && !buttonL1Held) {
+    /*if (Controller.ButtonL1.pressing() && intakeSpeed != 100 && !buttonL1Held) {
       intakeMotor.spin(forward, 100, percent);
       intakeSpeed = 100;
       buttonL1Held = true;
@@ -181,7 +186,7 @@ void usercontrol(void) {
     // ========== COLOR SENSOR ========== //
     color detectedColor = OpticalSensor.color();
 
-    /*if (detectedColor == color::blue) {
+    if (detectedColor == color::blue) {
       Brain.Screen.printAt(50, 50, "Blue Detected!");
     } 
     
@@ -201,14 +206,9 @@ void usercontrol(void) {
 
     // ========== PNEUMATICS ========== //
     // Use the X button to toggle the piston position //
-    if(Controller.ButtonX.pressing() && !buttonXHeld) {
+    if(Controller.ButtonX.PRESSED) {
       DoubleActingPiston.set(!DoubleActingPiston.value());
-      buttonXHeld = true;
     }
-    else if(!Controller.ButtonX.pressing()) {
-      buttonXHeld = false;
-    }
-
     // ========== LOOP DELAY ========== //
     wait(20, msec);
   }
