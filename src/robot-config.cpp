@@ -34,10 +34,8 @@ digital_out DoubleActingPiston(Brain.ThreeWirePort.A);
 digital_out SingleActingPiston(Brain.ThreeWirePort.B);
 
 motor intakeMotor(PORT14, ratio18_1, false);
-motor middleIntakeMotor(PORT13, ratio18_1, true);
-motor  bottomIntakeMotor(PORT12, ratio18_1, false); 
-
-motor_group intakeMotors(intakeMotor, middleIntakeMotor, bottomIntakeMotor);
+motor toggle(PORT13, ratio18_1, true);
+//motor  bottomIntakeMotor(PORT12, ratio18_1, false); 
 
 inertial InertialSensor(PORT7);
 
