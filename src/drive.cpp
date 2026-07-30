@@ -170,10 +170,22 @@ void drive::backwardsToPoint(double targetX, double targetY) {
     backwardsToPoint(targetX, targetY, turn_tolerance, turn_kP, turn_kI, turn_kD, drive_tolerance, drive_kP, drive_kI, drive_kD);
 }
 
+
 void drive::backwardsToPoint(double targetX, double targetY, double turnTolerance, double turnkP, double turnkI, double turnkD, double driveTolerance, double drivekP, double drivekI, double drivekD) {
+    
+    double neededAngle = (atan2(targetX - xCoord, targetY - yCoord)) * 180 / M_PI;
+    neededAngle += 180;
+    
+    if (neededAngle < 0) neededAngle += 360;
+    
+    if( neededAngle == Inertial.heading()){
+        wait(10, msec);
+    }
 
-    //Students, implement here!
-
+    else{
+        turnHeading(neededAngle, turnTolerance, turnkP, turnkI, turnkD);
+    }
+   
 }
 
 void drive::printCoordInfo() {
