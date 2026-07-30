@@ -110,13 +110,8 @@ void usercontrol(void) {
   while (true) {
 
     // ========== DRIVE CONTROL ========== //
-<<<<<<< HEAD
-  double forwards = Controller.Axis3.position();
-  double turning = Controller.Axis1.position();
-=======
     /*double fwd = Controller.Axis3.position(percent);
     double turn = Controller.Axis1.position(percent);
->>>>>>> 6369088c805d1eba8d8762691f12aec366ade949
 
   double right= forwards * 0.9 - turning * 0.7;
   double left= forwards * 0.9 + turning * 0.7;  
@@ -233,6 +228,7 @@ int main() {
     wait(100, msec);
   }
 }
+
 
 
 
