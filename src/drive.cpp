@@ -200,3 +200,16 @@ void drive::printCoordInfo() {
     Brain.Screen.print("heading: ");
     Brain.Screen.print(Inertial.heading());
 }
+
+void forwardsToPoint(
+    double targetX, 
+    double targetY, 
+    double turnTolerance = 0.8, 
+    double turnkP = 0.4, 
+    double turnkI = 0.0, 
+    double turnkD = 0.0, 
+    double driveTolerance = 2, 
+    double drivekP = 0.4, 
+    double drivekI = 0.0, 
+    double drivekD = 0.0
+);
