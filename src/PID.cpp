@@ -23,8 +23,8 @@ double targetDegrees = inchesToDegrees(targetInches);
   while (fabs(error) > 4.0) { 
 
     //if(vex::timer::system() - startTime > timeout) break;
-    double leftAvg = (LF.position(degrees) + LM.position(degrees) + LB.position(degrees)) / 3.0;
-    double rightAvg = (RF.position(degrees) + RM.position(degrees) + RB.position(degrees)) / 3.0;
+    double leftAvg = (LF.position(degrees) + LB.position(degrees)) / 2.0;
+    double rightAvg = (RF.position(degrees) + RB.position(degrees)) / 2.0;
     double avgPos = (leftAvg + rightAvg) / 2.0;
 
     error = targetDegrees - avgPos;

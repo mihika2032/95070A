@@ -107,31 +107,34 @@ void usercontrol(void) {
   bool slowModeActive = false;
   const double DRIVER_SPEED_FACTOR = 1.15; //can adjust your driver speed here
 
+
   while (true) {
-
+    //asfd
+  
     // ========== DRIVE CONTROL ========== //
-    /*double fwd = Controller.Axis3.position(percent);
-    double turn = Controller.Axis1.position(percent);
+    double forwards = Controller.Axis1.position() * 0.95; // forward/backward, change multiplier for sensitivity
+    double turn = Controller.Axis3.position() * 0.80; // left/right
 
-  double right= forwards * 0.9 - turning * 0.7;
-  double left= forwards * 0.9 + turning * 0.7;  
+    // Convert to voltage (+-12000 mV)
+    double leftVoltage = (forwards + turn) * 125;
+    double rightVoltage = (forwards - turn) * 125;
 
-  if(fabs(forwards) < 10 && fabs (turning) < 10){
-  LB.stop(coast);
-  LM.stop(coast);
-  LF.stop(coast);
-  RB.stop(coast);
-  RM.stop(coast);
-  RF.stop(coast);    
-  }
-  else{
-  LB.spin(forward, left, percent);
-  LM.spin(forward, left, percent);
-  LF.spin(forward, left, percent);
-  RB.spin(forward, right, percent);
-  RM.spin(forward, right, percent);
-  RF.spin(forward, right, percent);
-  }*/
+    // limmit :D
+    if (leftVoltage > 12000)
+        leftVoltage = 12000;
+    if (leftVoltage < -12000)
+        leftVoltage = -12000;
+    if (rightVoltage > 12000)
+        rightVoltage = 12000;
+    if (rightVoltage < -12000)
+        rightVoltage = -12000;
+
+    // Drive motors (direction, side of dt, voltage units)
+    LF.spin(vex::forward, leftVoltage, voltageUnits::mV);
+    LB.spin(vex::forward, leftVoltage, voltageUnits::mV);
+    RF.spin(vex::forward, rightVoltage, voltageUnits::mV);
+    RB.spin(vex::forward, rightVoltage, voltageUnits::mV);
+
 
     // ========== Lift CONTROL ========== //
     // Hold down the R1 and R2 buttons to use the lift //
@@ -148,6 +151,15 @@ void usercontrol(void) {
       Lift2.stop(hold);
     }
 
+    if (Controller.ButtonL1.pressing()) {
+      toggle.spin(reverse, 100, percent);
+    } 
+    else if (Controller.ButtonL2.pressing()) {
+      toggle.spin(forward, 100, percent);
+    } 
+    else {
+      toggle.stop(hold);
+    }
     // ========== INTAKE ========== //
     // Tap the L1 and L2 buttons to set the intake speed. Tap the same button again to stop //
     /*if (Controller.ButtonL1.pressing() && intakeSpeed != 100 && !buttonL1Held) {

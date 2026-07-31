@@ -204,11 +204,11 @@ void drive::printCoordInfo() {
 void forwardsToPoint(
     double targetX, 
     double targetY, 
-    double turnTolerance = 0.8, 
+    double turnTolerance = 1, 
     double turnkP = 0.4, 
     double turnkI = 0.0, 
     double turnkD = 0.0, 
-    double driveTolerance = 2, 
+    double driveTolerance = 3, 
     double drivekP = 0.4, 
     double drivekI = 0.0, 
     double drivekD = 0.0

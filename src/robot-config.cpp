@@ -1,5 +1,5 @@
-// src/robot-config.cpp
-#include "robot-config.h"
+// src/robot-config.cpppppp
+#include "robot-config.h"555ppppp
 
 using namespace vex;
 
@@ -16,28 +16,26 @@ using namespace vex;
 
 brain Brain;
 controller Controller(controllerType::primary);
-motor LB(PORT4, ratio6_1, true); //Left Back Motor
-motor LM(PORT20, ratio6_1, true); //Left Middle Motor
-motor LF(PORT1, ratio6_1, true); //Left Front Motor
-motor RB(PORT3, ratio6_1, false); //Right Back Motor
-motor RM(PORT5, ratio6_1, false); //Right Middle Motor
-motor RF(PORT2, ratio6_1, false); //Right Front Motor
+motor LB(PORT15, ratio6_1, true); //Left Back Motor
+motor LF(PORT14, ratio6_1, true); //Left Front Motor
+motor RB(PORT16, ratio6_1, true); //Right Back Motor
+motor RF(PORT13, ratio6_1, true); //Right Front Motor
 
 
-motor_group leftDrive(LF, LM, LB);
-motor_group rightDrive(RF, LM, RB);
+motor_group leftDrive(LF, LB);
+motor_group rightDrive(RF, RB);
 
-motor Lift1(PORT9, gearSetting::ratio18_1, true); //Lift motor
-motor Lift2(PORT11, gearSetting::ratio18_1, true); //Lift motor
+motor Lift1(PORT20, gearSetting::ratio18_1, true); //Lift motor
+motor Lift2(PORT19, gearSetting::ratio18_1, true); //Lift motor
 
 digital_out DoubleActingPiston(Brain.ThreeWirePort.A);
 digital_out SingleActingPiston(Brain.ThreeWirePort.B);
 
-motor intakeMotor(PORT14, ratio18_1, false);
-motor toggle(PORT13, ratio18_1, true);
+motor intakeMotor(PORT1, ratio18_1, false);
+motor toggle(PORT18, ratio18_1, true);
 //motor  bottomIntakeMotor(PORT12, ratio18_1, false); 
 
-inertial InertialSensor(PORT7);
+inertial InertialSensor(PORT17);
 
 optical OpticalSensor(PORT21);
 

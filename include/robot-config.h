@@ -10,10 +10,10 @@ extern vex::controller Controller;
 extern vex::competition Competition;
 
 extern vex::motor LB;
-extern vex::motor LM;
+//extern vex::motor LM;
 extern vex::motor LF;
 extern vex::motor RB;
-extern vex::motor RM;
+//extern vex::motor RM;
 extern vex::motor RF;
 
 extern vex::motor_group leftDrive; //all motors on left side of drivetrain
