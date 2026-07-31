@@ -112,7 +112,7 @@ void usercontrol(void) {
     //asfd
   
     // ========== DRIVE CONTROL ========== //
-    double forwards = Controller.Axis1.position() * 0.95; // forward/backward, change multiplier for sensitivity
+  /*double forwards = Controller.Axis1.position() * 0.95; // forward/backward, change multiplier for sensitivity
     double turn = Controller.Axis3.position() * 0.80; // left/right
 
     // Convert to voltage (+-12000 mV)
@@ -133,7 +133,26 @@ void usercontrol(void) {
     LF.spin(vex::forward, leftVoltage, voltageUnits::mV);
     LB.spin(vex::forward, leftVoltage, voltageUnits::mV);
     RF.spin(vex::forward, rightVoltage, voltageUnits::mV);
-    RB.spin(vex::forward, rightVoltage, voltageUnits::mV);
+    RB.spin(vex::forward, rightVoltage, voltageUnits::mV);*/
+  double left = Controller.Axis3.position();
+  double right = Controller.Axis2.position();
+  if(fabs(y) < 10 && fabs(x) < 10) {
+
+  LB.stop(coast);
+  LM.stop(coast);
+  LF.stop(coast);
+  RB.stop(coast);
+  RM.stop(coast);
+  RF.stop(coast);
+}
+
+else{
+  LB.spin(forward, left, percent); 
+  LM.spin(forward, left, percent);
+  LF.spin(forward, left, percent);
+  RB.spin(forward, right, percent);
+  RM.spin(forward, right, percent);
+  RF.spin(forward, right, percent);
 
 
     // ========== Lift CONTROL ========== //
