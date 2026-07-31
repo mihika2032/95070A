@@ -136,22 +136,18 @@ void usercontrol(void) {
     RB.spin(vex::forward, rightVoltage, voltageUnits::mV);*/
   double left = Controller.Axis3.position();
   double right = Controller.Axis2.position();
-  if(fabs(y) < 10 && fabs(x) < 10) {
+  if(fabs(left) < 10 && fabs(right) < 10) {
 
   LB.stop(coast);
-  LM.stop(coast);
   LF.stop(coast);
   RB.stop(coast);
-  RM.stop(coast);
   RF.stop(coast);
 }
 
 else{
   LB.spin(forward, left, percent); 
-  LM.spin(forward, left, percent);
   LF.spin(forward, left, percent);
   RB.spin(forward, right, percent);
-  RM.spin(forward, right, percent);
   RF.spin(forward, right, percent);
 
 
@@ -239,7 +235,7 @@ else{
     wait(20, msec);
   }
 }
-
+}
 
 
   
