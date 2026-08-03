@@ -112,7 +112,7 @@ void usercontrol(void) {
     //asfd
   
     // ========== DRIVE CONTROL ========== //
-  /*double forwards = Controller.Axis1.position() * 0.95; // forward/backward, change multiplier for sensitivity
+  double forwards = Controller.Axis1.position() * 0.95; // forward/backward, change multiplier for sensitivity
     double turn = Controller.Axis3.position() * 0.80; // left/right
 
     // Convert to voltage (+-12000 mV)
@@ -129,12 +129,12 @@ void usercontrol(void) {
     if (rightVoltage < -12000)
         rightVoltage = -12000;
 
-    // Drive motors (direction, side of dt, voltage units)
+    //Drive motors (direction, side of dt, voltage units)
     LF.spin(vex::forward, leftVoltage, voltageUnits::mV);
     LB.spin(vex::forward, leftVoltage, voltageUnits::mV);
     RF.spin(vex::forward, rightVoltage, voltageUnits::mV);
-    RB.spin(vex::forward, rightVoltage, voltageUnits::mV);*/
-  double left = Controller.Axis3.position();
+    RB.spin(vex::forward, rightVoltage, voltageUnits::mV);
+  /*double left = Controller.Axis3.position();
   double right = Controller.Axis2.position();
   if(fabs(left) < 10 && fabs(right) < 10) {
 
@@ -148,7 +148,7 @@ else{
   LB.spin(forward, left, percent); 
   LF.spin(forward, left, percent);
   RB.spin(forward, right, percent);
-  RF.spin(forward, right, percent);
+  RF.spin(forward, right, percent);*/
 
 
     // ========== Lift CONTROL ========== //
@@ -235,7 +235,7 @@ else{
     wait(20, msec);
   }
 }
-}
+
 
 
   
