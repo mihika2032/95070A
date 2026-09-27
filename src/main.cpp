@@ -166,7 +166,7 @@ else{
       Lift2.stop(hold);
     }
 
-    if (Controller.ButtonL1.pressing()) {
+    /*if (Controller.ButtonL1.pressing()) {
       toggle.spin(reverse, 100, percent);
     } 
     else if (Controller.ButtonL2.pressing()) {
@@ -174,7 +174,9 @@ else{
     } 
     else {
       toggle.stop(hold);
-    }
+    }*/
+
+    
     // ========== INTAKE ========== //
     // Tap the L1 and L2 buttons to set the intake speed. Tap the same button again to stop //
     /*if (Controller.ButtonL1.pressing() && intakeSpeed != 100 && !buttonL1Held) {
@@ -230,7 +232,13 @@ else{
     // Use the X button to toggle the piston position //
     if(Controller.ButtonX.PRESSED) {
       DoubleActingPiston.set(!DoubleActingPiston.value());
+      /*Lift1.spin(forward,100,percent);
+      Lift2.spin(forward,100,percent);
+      wait(1,msec);
+      Lift1.stop();
+      Lift2.stop();*/
     }
+  
     // ========== LOOP DELAY ========== //
     wait(20, msec);
   }
@@ -255,7 +263,6 @@ int main() {
     wait(100, msec);
   }
 }
-
 
 
 

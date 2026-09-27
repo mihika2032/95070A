@@ -21,7 +21,7 @@ extern vex::motor_group rightDrive; //all motors on right side of drivetrain
 
 extern vex::motor intakeMotor;
 extern vex::motor toggle;
-//extern vex::motor bottomIntakeMotor;
+extern vex::motor bottomIntakeMotor;
 
 extern vex::motor_group intakeMotors;
 
