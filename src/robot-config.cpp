@@ -18,8 +18,8 @@ brain Brain;
 controller Controller(controllerType::primary);
 motor LB(PORT12, ratio6_1, true); //Left Back Motor
 motor LF(PORT19, ratio6_1, true); //Left Front Motor
-motor RB(PORT20, ratio6_1, true); //Right Back Motor
-motor RF(PORT13, ratio6_1, true); //Right Front Motor
+motor RB(PORT20, ratio6_1, false); //Right Back Motor
+motor RF(PORT13, ratio6_1, false); //Right Front Motor
 
 motor_group leftDrive(LF, LB);
 motor_group rightDrive(RF, RB);

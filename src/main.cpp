@@ -112,8 +112,8 @@ void usercontrol(void) {
     //asfd
   
     // ========== DRIVE CONTROL ========== //
-  double forwards = Controller.Axis1.position() * 0.95; // forward/backward, change multiplier for sensitivity
-    double turn = Controller.Axis3.position() * 0.80; // left/right
+  double forwards = Controller.Axis3.position() * 0.95; // forward/backward, change multiplier for sensitivity
+    double turn = Controller.Axis1.position() * 0.80; // left/right
 
     // Convert to voltage (+-12000 mV)
     double leftVoltage = (forwards + turn) * 125;

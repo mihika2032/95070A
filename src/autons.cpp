@@ -6,17 +6,13 @@
 #include "autons.h"
 
 //test 
-//MIHKa IS furry AND MOnkeY and FURry MonkeY
-
 
 using namespace vex;
 
 void rightAuton() {
-  DrivePidParams setting = {};  //testing that there are no errors when building-- still need to test downloading
-  setting.maxSpeed = 60.0;
-  drivePID(10);
-  
-
+ // DrivePidParams setting = {} //testing that there are no errors when building-- still need to test downloading
+  drive Chassis(3.25, 3.0/4, 0, 0, 0, leftDrive, rightDrive, PORT11);
+  Chassis.driveDistance(24, 0.1, 3.601, 0.000000000001, 0.176);
 
 }
 
