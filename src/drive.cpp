@@ -78,7 +78,7 @@ void drive::turnAngle(double angle, double tolerance) {
     turnAngle(angle, tolerance, turn_kP, turn_kI, turn_kD);
 }
 
-void drive::turnAngle(double angle, double tolerance, double kP, double kI, double kD) {
+void drive::turnAngle(double angle, double tolerance=4, double kP=0.5, double kI=0, double kD=0) {
     Inertial.setRotation(0, degrees);
     double error = angle;
 
