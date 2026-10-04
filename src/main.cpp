@@ -43,6 +43,7 @@ void pre_auton(void) {
   vexcodeInit();
   autonSelector selector(1, 3);
   selector.chooseAuton();
+  InertialSensor.calibrate();
 }
 
 /*---------------------------------------------------------------------------*/

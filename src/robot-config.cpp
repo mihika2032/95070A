@@ -40,7 +40,7 @@ optical OpticalSensor(PORT21);
 
 void vexcodeInit() {
   InertialSensor.calibrate();
-  DoubleActingPiston.set(false); // retracted
+  DoubleActingPiston.set(true); // retracted
   SingleActingPiston.set(false); // off
   while (InertialSensor.isCalibrating()) {
     task::sleep(100);
