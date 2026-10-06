@@ -235,7 +235,7 @@ else{
       DoubleActingPiston.set(!DoubleActingPiston.value());
       Lift1.spin(reverse, 50,percent);
       Lift2.spin(forward, 50,percent);
-      wait(0.3,sec);
+      wait(90, msec);
       Lift1.stop();
       Lift2.stop();
     }
