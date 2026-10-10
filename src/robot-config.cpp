@@ -34,7 +34,7 @@ motor intakeMotor(PORT3, ratio18_1, false);
 motor toggle(PORT2, ratio18_1, true);
 motor  bottomIntakeMotor(PORT4, ratio18_1, false); 
 
-inertial InertialSensor(PORT11);
+inertial InertialSensor(PORT16);
 
 optical OpticalSensor(PORT21);
 
