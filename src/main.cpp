@@ -155,12 +155,12 @@ else{
     // ========== Lift CONTROL ========== //
     // Hold down the R1 and R2 buttons to use the lift //
     if (Controller.ButtonR1.pressing()) {
-      Lift1.spin(reverse, 50, percent);
-      Lift2.spin(forward, 50, percent);
+      Lift1.spin(reverse, 60, percent);
+      Lift2.spin(forward, 60, percent);
     } 
     else if (Controller.ButtonR2.pressing()) {
-      Lift1.spin(forward, 50, percent);
-      Lift2.spin(reverse, 50, percent);
+      Lift1.spin(forward, 60, percent);
+      Lift2.spin(reverse, 60, percent);
     } 
     else {
       Lift1.stop(hold);
