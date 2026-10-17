@@ -44,6 +44,7 @@ void pre_auton(void) {
   autonSelector selector(1, 3);
   selector.chooseAuton();
   InertialSensor.calibrate();
+  DoubleActingPiston.set(true);
 }
 
 /*---------------------------------------------------------------------------*/
