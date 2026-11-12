@@ -16,29 +16,29 @@ using namespace vex;
 
 brain Brain;
 controller Controller(controllerType::primary);
-motor LB(PORT12, ratio6_1, true); //Left Back Motor
-motor LM(PORT1,true);
-motor LF(PORT15, ratio6_1, true); //Left Front Motor
-motor RB(PORT20, ratio6_1, false); //Right Back Motor
-motor RM(PORT14,false);
-motor RF(PORT13, ratio6_1, false); //Right Front Motor
+motor LB(PORT1, ratio6_1, true); //Left Back Motor
+motor LM(PORT2,true);
+motor LF(PORT4, ratio6_1, true); //Left Front Motor
+motor RB(PORT10, ratio6_1, false); //Right Back Motor
+motor RM(PORT7,false);
+motor RF(PORT5, ratio6_1, false); //Right Front Motor
 
 motor_group leftDrive(LF, LM, LB);
 motor_group rightDrive(RF, RM, RB);
 
-motor Lift1(PORT11, gearSetting::ratio18_1, true); //Lift motor
-motor Lift2(PORT18, gearSetting::ratio18_1, false); //Lift motor
+motor Lift1(PORT3, gearSetting::ratio18_1, true); //Lift motor
+motor Lift2(PORT6, gearSetting::ratio18_1, false); //Lift motor
 
 digital_out DoubleActingPiston(Brain.ThreeWirePort.H);
 digital_out SingleActingPiston(Brain.ThreeWirePort.B);
 
-motor intakeMotor(PORT3, ratio18_1, false);
-motor toggle(PORT2, ratio18_1, true);
-motor  bottomIntakeMotor(PORT4, ratio18_1, false); 
+motor intakeMotor(PORT8, ratio18_1, false);
+motor toggle(PORT9, ratio18_1, true);
+motor  bottomIntakeMotor(PORT11, ratio18_1, false); 
 
-inertial InertialSensor(PORT16);
+inertial InertialSensor(PORT12);
 
-optical OpticalSensor(PORT21);
+optical OpticalSensor(PORT13);
 
 void vexcodeInit() {
   InertialSensor.calibrate(); // retracted
