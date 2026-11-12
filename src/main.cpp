@@ -133,8 +133,10 @@ void usercontrol(void) {
 
     //Drive motors (direction, side of dt, voltage units)
     LF.spin(vex::forward, leftVoltage, voltageUnits::mV);
+    LM.spin(vex::forward, leftVoltage, voltageUnits::mV);
     LB.spin(vex::forward, leftVoltage, voltageUnits::mV);
     RF.spin(vex::forward, rightVoltage, voltageUnits::mV);
+    RM.spin(vex::forward, rightVoltage, voltageUnits::mV);
     RB.spin(vex::forward, rightVoltage, voltageUnits::mV);
   /*double left = Controller.Axis3.position();
   double right = Controller.Axis2.position();

@@ -17,12 +17,14 @@ using namespace vex;
 brain Brain;
 controller Controller(controllerType::primary);
 motor LB(PORT12, ratio6_1, true); //Left Back Motor
+motor LM(PORT1,true);
 motor LF(PORT15, ratio6_1, true); //Left Front Motor
 motor RB(PORT20, ratio6_1, false); //Right Back Motor
+motor RM(PORT14,false);
 motor RF(PORT13, ratio6_1, false); //Right Front Motor
 
-motor_group leftDrive(LF, LB);
-motor_group rightDrive(RF, RB);
+motor_group leftDrive(LF, LM, LB);
+motor_group rightDrive(RF, RM, RB);
 
 motor Lift1(PORT11, gearSetting::ratio18_1, true); //Lift motor
 motor Lift2(PORT18, gearSetting::ratio18_1, false); //Lift motor
