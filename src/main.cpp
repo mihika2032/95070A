@@ -100,7 +100,7 @@ bool inauton = false;
 double intakeSpeed = 0;
 bool buttonL1Held = false;
 bool buttonL2Held = false;
-
+bool clawOpen = false;  
 bool buttonXHeld = false;
 
 // User control function
@@ -158,12 +158,12 @@ else{
     // ========== Lift CONTROL ========== //
     // Hold down the R1 and R2 buttons to use the lift //
     if (Controller.ButtonR1.pressing()) {
-      Lift1.spin(reverse, 45, percent);
-      Lift2.spin(forward, 45, percent);
+      Lift1.spin(forward, 20, percent);
+      Lift2.spin(reverse, 20, percent);
     } 
     else if (Controller.ButtonR2.pressing()) {
-      Lift1.spin(forward, 45, percent);
-      Lift2.spin(reverse, 45, percent);
+      Lift1.spin(reverse, 20, percent);
+      Lift2.spin(forward, 20, percent);
     } 
     else {
       Lift1.stop(hold);
@@ -234,7 +234,7 @@ else{
 
     // ========== PNEUMATICS ========== //
     // Use the X button to toggle the piston position //
-    if(Controller.ButtonL1.PRESSED) {
+    /*if(Controller.ButtonL1.PRESSED) {
       DoubleActingPiston.set(!DoubleActingPiston.value());
       if (!DoubleActingPiston.value()){
       Lift1.spin(reverse, 50,percent);
@@ -244,7 +244,8 @@ else{
       Lift2.stop();
       }
       
-    }
+    }*/
+
   
     // ========== LOOP DELAY ========== //
     wait(20, msec);

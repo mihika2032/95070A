@@ -31,6 +31,7 @@ motor Lift2(PORT6, gearSetting::ratio18_1, false); //Lift motor
 
 digital_out DoubleActingPiston(Brain.ThreeWirePort.H);
 digital_out SingleActingPiston(Brain.ThreeWirePort.B);
+distance Distance(PORT11);
 
 motor intakeMotor(PORT8, ratio18_1, false);
 motor toggle(PORT9, ratio18_1, true);
