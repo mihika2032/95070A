@@ -226,11 +226,11 @@ else{
       Brain.Screen.printAt(50, 50, "No specific color detected.");
     }*/
 
-    double hue = OpticalSensor.hue();
+    /*double hue = OpticalSensor.hue();
     double brightness = OpticalSensor.brightness();
     Brain.Screen.printAt(50, 70, "Hue: %.2f", hue);
     Brain.Screen.printAt(50, 90, "Brightness: %.2f", brightness);
-    Brain.Screen.clearScreen();
+    Brain.Screen.clearScreen();*/
 
     // ========== PNEUMATICS ========== //
     // Use the X button to toggle the piston position //

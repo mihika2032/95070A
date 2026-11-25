@@ -19,11 +19,8 @@ extern vex::motor RF;
 extern vex::motor_group leftDrive; //all motors on left side of drivetrain
 extern vex::motor_group rightDrive; //all motors on right side of drivetrain
 
-extern vex::motor intakeMotor;
-extern vex::motor toggle;
-extern vex::motor bottomIntakeMotor;
 
-extern vex::motor_group intakeMotors;
+extern vex::motor Toggle;
 
 //extern vex::drivetrain Drivetrain;
 
@@ -31,10 +28,8 @@ extern vex::motor Lift1;
 extern vex::motor Lift2;
 
 extern vex::inertial InertialSensor;
-extern vex::optical OpticalSensor;
 
 extern vex::digital_out DoubleActingPiston;
-extern vex::digital_out SingleActingPiston;
 
 void vexcodeInit();
 
