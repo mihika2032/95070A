@@ -10,7 +10,7 @@
 using namespace vex;
 
 void rightAuton() {
-  drive Chassis(3.25, 3.0/4, 0, 0, 0, leftDrive, rightDrive, PORT16);
+  drive Chassis(2.75, 3.0/4, 0, 0, 0, leftDrive, rightDrive, PORT16);
   //Chassis.driveDistance(24, 0.1, 3.601, 0.000000000001, 0.176);
   //Controller.rumble("... --- ...");
   Chassis.driveDistance(-5, 0.5, 4, 0, 0.03);
@@ -41,7 +41,7 @@ void rightAuton() {
 }
 
 void leftAuton() {
-drive Chassis(3.25, 3.0/4, 0, 0, 0, leftDrive, rightDrive, PORT16);
+drive Chassis(2.75, 3.0/4, 0, 0, 0, leftDrive, rightDrive, PORT16);
   //Chassis.driveDistance(24, 0.1, 3.601, 0.000000000001, 0.176);
   //Controller.rumble("... --- ...");
   Chassis.driveDistance(-5, 0.5, 4, 0, 0.03);
